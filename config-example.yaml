@@ -1,0 +1,9 @@
+config:
+  environment_1:
+    url: https://grafana.environment1.com
+    token: redacted
+    dir: /path/to/output/directory/
+  environment_2:
+    url: https://grafana.environment2.com
+    token: redacted
+    dir: /path/to/output/directory/
