@@ -1,9 +1,27 @@
 config:
-  environment_1:
+  source:
     url: https://grafana.environment1.com
     token: redacted
-    dir: /path/to/output/directory/
-  environment_2:
+    dir: /path/to/output/directory/ # or tmp
+  destination:
     url: https://grafana.environment2.com
     token: redacted
     dir: /path/to/output/directory/
+
+daemon:
+  enabled: true
+  prometheus:
+    enabled: true
+    directory: /var/lib/prometheus/node-exporter
+  logging:
+    enabled: true
+    directory: /var/log/grafana-sync
+    level: DEBUG
+  sync:
+    enabled: true
+    interval: 21600 # 6 hours in seconds
+    resources: ['dashboards', 'folders', 'teams']
+    type: full # full or diff
+  backups:
+    enabled: true
+    dir: /path/to/backup/directory/
